@@ -1,0 +1,51 @@
+<section>
+  <form action="/admin" method="post" class="content pure-form pure-form-stacked">
+    <fieldset>
+      <legend>Admin</legend>
+
+      Description:
+       <input id="description" type="text" name="description" placeholder="what's your..." required />
+      
+      <button type="submit" class="pure-button pure-button-primary">Ok<i class="icon-arrow-right right"></i></button>
+
+
+       <br/>
+      Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="item" type="text" name="item" placeholder="Language..." required />
+
+
+      
+
+      <button type="submit" class="pure-button pure-button-primary">Add<i class="icon-arrow-right right"></i></button>
+    </fieldset>
+  </form>
+</section>
+
+<section>
+  <div class="content">
+   <ul>
+      <% _.each(items, function (item) { %>
+        <li>
+          <a href="/Admin/cast/<%= item.id %>"><%= item.item %></a>
+          <a href="/Admin/del/<%= item.id %>"><%= item.item %></a>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<hr/>
+
+<section>
+  <div class="content">
+    <h3>Current Result</h3>
+    <ul>
+      <% _.each(currentresult, function (current) { %>
+        <li><%= current.item %>"> - <%= current.count %> &nbsp; (<% _.each(current.vote, function (vote) { %>
+          <%vote%>
+         <% })%>
+        </li>
+      <% }) %>)
+    </ul>
+  </div>
+</section>

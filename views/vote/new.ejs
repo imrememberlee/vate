@@ -1,0 +1,19 @@
+<section>
+   <form action="/Vote/results" method="post" class="content pure-form pure-form-stacked">
+   Your Name:
+     <input id="yourname" type="text" name="yourname" placeholder="what's your..." required />
+    <p>
+    What's your fourite language?(check one or two)
+    </p>
+    <ul class="items results" data-total-votes="<%= total_votes %>">
+      <% _.each(items, function (item) { %>
+        
+        <label for="private" class="pure-checkbox">
+        <input id="<%= item.id %>" type="checkbox"> <%= item.item %>
+      </label>
+        </li>
+      <% }) %>
+    </ul>
+    <button type="submit" class="pure-button pure-button-primary">Ok<i class="icon-arrow-right right"></i></button>
+  </form>
+</section>
